@@ -185,6 +185,9 @@ export default class CodeEditor extends React.Component {
     const expandSnippet = snippetManager.expandSnippet
 
     this.defaultKeyMap = CodeMirror.normalizeKeyMap({
+      'Ctrl-Space': function(cm) {
+        cm.showHint({ hint: CodeMirror.hint.anyword })
+      },
       Tab: function(cm) {
         const cursor = cm.getCursor()
         const line = cm.getLine(cursor.line)
